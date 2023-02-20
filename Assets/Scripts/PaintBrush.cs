@@ -17,7 +17,7 @@ public class PaintBrush : MonoBehaviour
     private void Update()
     {
         _position = transform.position;
-        _forward = -transform.forward;
+        _forward = transform.forward;
 
         // create ray from paintbrush
         _ray = new Ray(_position, _forward);
