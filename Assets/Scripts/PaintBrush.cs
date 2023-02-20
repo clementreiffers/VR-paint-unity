@@ -2,42 +2,38 @@ using UnityEngine;
 
 public class PaintBrush : MonoBehaviour
 {
-    public float brushDepth = 10;
-    public float brushWidth = 10;
-    public Texture2D brushTexture;
+    [Range(0.05f, 3)] public float brushDepth;
     public LayerMask layers;
-
-    private bool _hasHitPaintable;
-    private Vector3 _position, _forward;
+    [Range(0, 1)] public float brushWidth;
+    public Texture2D brushTexture;
+    private bool hasHitPaintable;
 
     // Update is called once per frame
     private void Update()
     {
-        _position = transform.position;
-        _forward = -transform.forward * 10;
-
-        var ray = new Ray(_position, _forward);
+        // cree la ray(demi droite)partant du peinceau
+        var ray = new Ray(transform.position, -transform.forward);
         RaycastHit hit;
 
-
         // Raycast pour verifier le contact entre peinceau et toile
-        if (Physics.Raycast(ray, out hit, brushDepth, layers))
+        if (Physics.Raycast(ray, out hit))
         {
+            var hitUV = hit.textureCoord;
+
             var paintCanvas = hit.transform.GetComponent<PaintCanvas>();
-            paintCanvas.Paint(hit.textureCoord, brushWidth, brushTexture);
-            _hasHitPaintable = true;
-            // Debug.Log("touche");
+            paintCanvas.Paint(hitUV, brushWidth, brushTexture);
+
+            hasHitPaintable = true;
         }
         else
         {
-            _hasHitPaintable = false;
+            hasHitPaintable = false;
         }
-
-        Debug.DrawRay(_position, _forward, _hasHitPaintable ? Color.green : Color.red);
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = _hasHitPaintable ? Color.blue : Color.green;
+        Gizmos.color = hasHitPaintable ? Color.blue : Color.green;
+        Gizmos.DrawRay(transform.position, -transform.forward * brushDepth);
     }
 }
