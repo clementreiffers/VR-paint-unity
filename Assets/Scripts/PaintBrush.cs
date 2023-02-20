@@ -6,34 +6,40 @@ public class PaintBrush : MonoBehaviour
     public LayerMask layers;
     [Range(0, 1)] public float brushWidth;
     public Texture2D brushTexture;
-    private bool hasHitPaintable;
+
+    private bool _hasHitPaintable;
+    private RaycastHit _hit;
+    private Vector3 _position, _forward;
+    private Ray _ray;
+
 
     // Update is called once per frame
     private void Update()
     {
-        // cree la ray(demi droite)partant du peinceau
-        var ray = new Ray(transform.position, -transform.forward);
-        RaycastHit hit;
+        _position = transform.position;
+        _forward = -transform.forward;
 
-        // Raycast pour verifier le contact entre peinceau et toile
-        if (Physics.Raycast(ray, out hit))
-        {
-            var hitUV = hit.textureCoord;
+        // create ray from paintbrush
+        _ray = new Ray(_position, _forward);
 
-            var paintCanvas = hit.transform.GetComponent<PaintCanvas>();
-            paintCanvas.Paint(hitUV, brushWidth, brushTexture);
+        // verify if the paintbrush touch the layer
+        _hasHitPaintable = Physics.Raycast(_ray, out _hit, brushDepth, layers);
 
-            hasHitPaintable = true;
-        }
-        else
-        {
-            hasHitPaintable = false;
-        }
+        if (!_hasHitPaintable) return;
+
+        PaintOnPaintCanvasAtHit();
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = hasHitPaintable ? Color.blue : Color.green;
-        Gizmos.DrawRay(transform.position, -transform.forward * brushDepth);
+        Gizmos.color = _hasHitPaintable ? Color.blue : Color.green;
+        Gizmos.DrawRay(transform.position, _forward * brushDepth);
+    }
+
+    private void PaintOnPaintCanvasAtHit()
+    {
+        var paintCanvas = _hit.transform.GetComponent<PaintCanvas>();
+        var textureCoord = _hit.textureCoord;
+        paintCanvas.Paint(textureCoord, brushWidth, brushTexture);
     }
 }
