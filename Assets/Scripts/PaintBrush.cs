@@ -19,23 +19,21 @@ public class PaintBrush : MonoBehaviour
         var ray = new Ray(_position, _forward);
         RaycastHit hit;
 
-        Debug.DrawRay(_position, _forward, Color.green);
 
         // Raycast pour verifier le contact entre peinceau et toile
         if (Physics.Raycast(ray, out hit, brushDepth, layers))
         {
-            var hitUV = hit.textureCoord;
-
             var paintCanvas = hit.transform.GetComponent<PaintCanvas>();
-            // if (paintCanvas == null) Debug.Break();
-            paintCanvas.Paint(hitUV, brushWidth, brushTexture);
+            paintCanvas.Paint(hit.textureCoord, brushWidth, brushTexture);
             _hasHitPaintable = true;
-            Debug.Log("touche");
+            // Debug.Log("touche");
         }
         else
         {
             _hasHitPaintable = false;
         }
+
+        Debug.DrawRay(_position, _forward, _hasHitPaintable ? Color.green : Color.red);
     }
 
     private void OnDrawGizmos()
