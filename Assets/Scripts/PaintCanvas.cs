@@ -11,7 +11,7 @@ public class PaintCanvas : MonoBehaviour
         ClearOutRenderTexture(paintableAreaRT);
     }
 
-    public void Paint(Vector2 uv, float brushWidth, Texture2D brushTex)
+    public void Paint(Vector2 uv, float brushWidth, Texture2D brushTex, Color paintColor)
     {
         //Activate RT
         RenderTexture.active = paintableAreaRT;
@@ -29,7 +29,7 @@ public class PaintCanvas : MonoBehaviour
 
         //Paint on RT
         var paintRect = new Rect(uv.x - brushWidth * 0.5f, uv.y - brushWidth * 0.5f, brushWidth, brushWidth);
-        Graphics.DrawTexture(paintRect, brushTex, new Rect(0, 0, 1, 1), 0, 0, 0, 0, Color.green, null);
+        Graphics.DrawTexture(paintRect, brushTex, new Rect(0, 0, 1, 1), 0, 0, 0, 0, paintColor, null);
 
         GL.PopMatrix();
         // turn off RT
