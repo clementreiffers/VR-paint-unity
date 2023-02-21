@@ -885,11 +885,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63251eafb6abcda4d98dff2e14314661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brushDepth: 3
+  brushDepth: 10.05
   layers:
     serializedVersion: 2
     m_Bits: 8
-  brushWidth: 0.163
+  brushWidth: 0.09
   brushTexture: {fileID: 10912, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &552927055
 MonoBehaviour:

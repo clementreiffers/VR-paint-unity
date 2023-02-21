@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PaintBrush : MonoBehaviour
 {
-    [Range(0.05f, 3)] public float brushDepth;
+    [Range(0.05f, 30)] public float brushDepth = 10;
     public LayerMask layers;
-    [Range(0, 1)] public float brushWidth;
+    [Range(0, 10)] public float brushWidth = 1;
     public Texture2D brushTexture;
 
     private bool _hasHitPaintable;
