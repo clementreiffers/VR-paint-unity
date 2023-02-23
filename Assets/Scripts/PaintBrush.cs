@@ -6,6 +6,7 @@ public class PaintBrush : MonoBehaviour
     public LayerMask layers;
     [Range(0, 10)] public float brushWidth = 1;
     public Texture2D brushTexture;
+    public Color paintColor;
 
     private bool _hasHitPaintable;
     private RaycastHit _hit;
@@ -40,6 +41,6 @@ public class PaintBrush : MonoBehaviour
     {
         var paintCanvas = _hit.transform.GetComponent<PaintCanvas>();
         var textureCoord = _hit.textureCoord;
-        paintCanvas.Paint(textureCoord, brushWidth, brushTexture);
+        paintCanvas.Paint(textureCoord, brushWidth, brushTexture, paintColor);
     }
 }
