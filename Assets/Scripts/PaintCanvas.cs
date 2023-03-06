@@ -14,7 +14,7 @@ public class PaintCanvas : MonoBehaviour
     public void Paint(Vector2 uv, float brushWidth, Texture2D brushTex, Color paintColor)
     {
         //Activate RT
-        RenderTexture.active = paintableAreaRT; /*
+        RenderTexture.active = paintableAreaRT;
 
         // save matrixes
         GL.PushMatrix();
@@ -33,7 +33,7 @@ public class PaintCanvas : MonoBehaviour
 
         GL.PopMatrix();
         // turn off RT
-        RenderTexture.active = null;*/
+        RenderTexture.active = null;
     }
 
     public void ClearOutRenderTexture(RenderTexture renderTexture)
