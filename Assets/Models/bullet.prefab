@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 2868972387419280651}
   - component: {fileID: 271773026948184735}
   - component: {fileID: 7506499143862046384}
-  - component: {fileID: 7998615098059020016}
+  - component: {fileID: -9277700828225220}
+  - component: {fileID: 1719152564467097046}
+  - component: {fileID: 695898063987943436}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -28,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8774766113926993114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3377755, y: 1.1440341, z: 0.5747113}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.05}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,9 +98,36 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.01, z: 0.05}
+  m_Size: {x: 0.05, y: 0.05, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &7998615098059020016
+--- !u!114 &-9277700828225220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8774766113926993114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365d32c7e1d7f2049a945ee50c89401d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletTexture: {fileID: 10912, guid: 0000000000000000f000000000000000, type: 0}
+  bulletColor: {r: 0, g: 1, b: 0.0791831, a: 0}
+--- !u!65 &1719152564467097046
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8774766113926993114}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &695898063987943436
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
