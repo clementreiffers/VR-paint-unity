@@ -14,7 +14,8 @@ public class PaintCanvas : MonoBehaviour
     public void Paint(Vector2 uv, float brushWidth, Texture2D brushTex, Color paintColor)
     {
         //Activate RT
-        RenderTexture.active = paintableAreaRT;
+        RenderTexture.active = paintableAreaRT; /*
+
         // save matrixes
         GL.PushMatrix();
         // setup matrix for correct size
@@ -23,7 +24,6 @@ public class PaintCanvas : MonoBehaviour
         //Setup UVs to be the right scale
         uv.x *= textureResolution;
         uv.y = textureResolution * (1 - uv.y);
-
         //Scale the brush witdh to match the scale of the object in the world and the res of the texture
         brushWidth *= textureResolution;
 
@@ -33,7 +33,7 @@ public class PaintCanvas : MonoBehaviour
 
         GL.PopMatrix();
         // turn off RT
-        RenderTexture.active = null;
+        RenderTexture.active = null;*/
     }
 
     public void ClearOutRenderTexture(RenderTexture renderTexture)
