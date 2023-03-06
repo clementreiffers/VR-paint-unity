@@ -1,13 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PaintCanvas : MonoBehaviour
 {
-    RenderTexture paintableAreaRT;
+    public RenderTexture paintableAreaRT;
     public int textureResolution = 256;
 
-    public void Paint(Vector2 uv, float brushWidth, Texture2D brushTex)
+
+    public void Start()
+    {
+        ClearOutRenderTexture(paintableAreaRT);
+    }
+
+    public void Paint(Vector2 uv, float brushWidth, Texture2D brushTex, Color paintColor)
     {
         //Activate RT
         RenderTexture.active = paintableAreaRT;
@@ -24,8 +28,8 @@ public class PaintCanvas : MonoBehaviour
         brushWidth *= textureResolution;
 
         //Paint on RT
-        Rect paintRect = new Rect(uv.x - brushWidth * 0.5f, uv.y - brushWidth * 0.5f, brushWidth, brushWidth);
-        Graphics.DrawTexture(paintRect, brushTex, new Rect(0, 0, 1, 1), 0, 0, 0, 0, Color.green, null);
+        var paintRect = new Rect(uv.x - brushWidth * 0.5f, uv.y - brushWidth * 0.5f, brushWidth, brushWidth);
+        Graphics.DrawTexture(paintRect, brushTex, new Rect(0, 0, 1, 1), 0, 0, 0, 0, paintColor, null);
 
         GL.PopMatrix();
         // turn off RT
