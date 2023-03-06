@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public int score;
+    public int hitCount;
     public Texture2D bulletTexture;
 
     // Start is called before the first frame update
     private void Start()
     {
-        score = 0;
+        hitCount = 0;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        score++;
+        hitCount++;
         // var bullet = collision.transform.GetComponent<Bullet>();
         // Vector2 bulletCoord = bullet.transform.position;
         // PaintOnPaintCanvasAtHit(paintCanvas, bulletCoord);
