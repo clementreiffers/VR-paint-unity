@@ -10,17 +10,20 @@ using static UnityEngine.GraphicsBuffer;
 public class ScoreUI : MonoBehaviour
 {
     // Start is called before the first frame update
-    Target target;
+    public int scorehitcount;
     void Start()
     {
-        target = FindObjectOfType<Target>();
+        scorehitcount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        SetHitcount(scorehitcount);
+    }
+    private void SetHitcount(int hitcount)
+    {
         TextMeshProUGUI monTextMeshProUGUI = GetComponent<TextMeshProUGUI>();
-        monTextMeshProUGUI.SetText("Score : " + target.hitCount);
-
+        monTextMeshProUGUI.SetText("Score : " + hitcount);
     }
 }
