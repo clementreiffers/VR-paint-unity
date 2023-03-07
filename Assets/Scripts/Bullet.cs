@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     private RaycastHit _hit;
 
-    private void OnCollisionExit(Collision collision)
+    private void Update()
     {
         var position = transform.position;
         var forward = transform.forward;
