@@ -2,17 +2,19 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public int score;
+    public Texture2D bulletTexture;
+
+    private ScoreUI _score;
 
     // Start is called before the first frame update
     private void Start()
     {
-        score = 0;
+        _score = FindObjectOfType<ScoreUI>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(collision.gameObject);
-        score++;
+        _score.scorehitcount++;
     }
 }
