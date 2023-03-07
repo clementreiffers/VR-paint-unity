@@ -5,16 +5,18 @@ public class PaintCanvas : MonoBehaviour
     public RenderTexture paintableAreaRT;
     public int textureResolution = 256;
 
+    private RenderTexture _copiedRenderTexture;
 
     public void Start()
     {
         ClearOutRenderTexture(paintableAreaRT);
+        _copiedRenderTexture = paintableAreaRT;
     }
 
     public void Paint(Vector2 uv, float width, Texture2D texture, Color color)
     {
         //Activate RT
-        RenderTexture.active = paintableAreaRT;
+        RenderTexture.active = _copiedRenderTexture;
 
         // save matrixes
         GL.PushMatrix();

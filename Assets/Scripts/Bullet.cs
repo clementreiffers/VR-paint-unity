@@ -4,14 +4,17 @@ public class Bullet : MonoBehaviour
 {
     public Texture2D bulletTexture;
     public Color bulletColor;
-    public float bulletDepth;
+    public float bulletDepth, bulletWidth;
     public LayerMask layers;
-    public float bulletWidth;
+    public int timeToLive;
+
     private RaycastHit _hit;
 
     private void Update()
     {
         WatchAllAlongTheBullet(transform.position, transform.forward);
+        // bullets destroyed after 5 seconds
+        Destroy(gameObject, timeToLive);
     }
 
     private void WatchAllAlongTheBullet(Vector3 position, Vector3 forward)

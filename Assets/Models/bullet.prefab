@@ -115,10 +115,11 @@ MonoBehaviour:
   bulletTexture: {fileID: 2800000, guid: 5fd9c49bd3a85164eb2e818d701eae7d, type: 3}
   bulletColor: {r: 0, g: 1, b: 0.0791831, a: 0}
   bulletDepth: 1
+  bulletWidth: 0.2
   layers:
     serializedVersion: 2
     m_Bits: 8
-  bulletWidth: 0.2
+  timeToLive: 5
 --- !u!65 &1719152564467097046
 BoxCollider:
   m_ObjectHideFlags: 0
