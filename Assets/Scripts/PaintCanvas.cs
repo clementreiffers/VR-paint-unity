@@ -6,12 +6,12 @@ public class PaintCanvas : MonoBehaviour
     public int textureResolution = 256;
 
 
-    public void Start()
-    {
-        ClearOutRenderTexture(paintableAreaRT);
-    }
+    // public void Start()
+    // {
+    // ClearOutRenderTexture(paintableAreaRT);
+    // }
 
-    public void Paint(Vector2 uv, float brushWidth, Texture2D brushTex, Color paintColor)
+    public void Paint(Vector2 uv, float width, Texture2D texture, Color color)
     {
         //Activate RT
         RenderTexture.active = paintableAreaRT;
@@ -25,11 +25,11 @@ public class PaintCanvas : MonoBehaviour
         uv.x *= textureResolution;
         uv.y = textureResolution * (1 - uv.y);
         //Scale the brush witdh to match the scale of the object in the world and the res of the texture
-        brushWidth *= textureResolution;
+        width *= textureResolution;
 
         //Paint on RT
-        var paintRect = new Rect(uv.x - brushWidth * 0.5f, uv.y - brushWidth * 0.5f, brushWidth, brushWidth);
-        Graphics.DrawTexture(paintRect, brushTex, new Rect(0, 0, 1, 1), 0, 0, 0, 0, paintColor, null);
+        var paintRect = new Rect(uv.x - width * 0.5f, uv.y - width * 0.5f, width, width);
+        Graphics.DrawTexture(paintRect, texture, new Rect(0, 0, 1, 1), 0, 0, 0, 0, color, null);
 
         GL.PopMatrix();
         // turn off RT
