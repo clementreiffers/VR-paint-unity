@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public Texture2D bulletTexture;
-
     private ScoreUI _score;
 
     // Start is called before the first frame update
