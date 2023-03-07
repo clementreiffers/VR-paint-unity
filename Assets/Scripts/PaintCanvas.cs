@@ -6,11 +6,16 @@ public class PaintCanvas : MonoBehaviour
     public int textureResolution = 256;
 
     private RenderTexture _copiedRenderTexture;
+    private MeshRenderer _meshRenderer;
 
     public void Start()
     {
         ClearOutRenderTexture(paintableAreaRT);
-        _copiedRenderTexture = paintableAreaRT;
+        _copiedRenderTexture = new RenderTexture(paintableAreaRT);
+        _copiedRenderTexture.Create();
+
+        _meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        _meshRenderer.materials[0].mainTexture = _copiedRenderTexture;
     }
 
     public void Paint(Vector2 uv, float width, Texture2D texture, Color color)
