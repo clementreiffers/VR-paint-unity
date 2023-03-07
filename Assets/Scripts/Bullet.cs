@@ -41,6 +41,6 @@ public class Bullet : MonoBehaviour
         Debug.Log("KABOOM AT : " + _hit.textureCoord);
         var textureCoord = _hit.textureCoord;
         var paintCanvas = _hit.transform.GetComponent<PaintCanvas>();
-        paintCanvas.Paint(textureCoord, 100, bulletTexture, bulletColor);
+        paintCanvas.Paint(textureCoord, 1, bulletTexture, Color.green);
     }
 }

@@ -6,10 +6,10 @@ public class PaintCanvas : MonoBehaviour
     public int textureResolution = 256;
 
 
-    // public void Start()
-    // {
-    // ClearOutRenderTexture(paintableAreaRT);
-    // }
+    public void Start()
+    {
+        ClearOutRenderTexture(paintableAreaRT);
+    }
 
     public void Paint(Vector2 uv, float width, Texture2D texture, Color color)
     {
