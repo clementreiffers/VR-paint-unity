@@ -36,7 +36,7 @@ public class PaintCanvas : MonoBehaviour
         RenderTexture.active = null;
     }
 
-    public void ClearOutRenderTexture(RenderTexture renderTexture)
+    private void ClearOutRenderTexture(RenderTexture renderTexture)
     {
         RenderTexture.active = renderTexture;
         GL.Clear(true, true, new Color(0, 0, 0, 0));

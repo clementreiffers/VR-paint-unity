@@ -6,41 +6,33 @@ public class Bullet : MonoBehaviour
     public Color bulletColor;
     public float bulletDepth;
     public LayerMask layers;
-
+    public float bulletWidth;
     private RaycastHit _hit;
 
     private void Update()
     {
-        var position = transform.position;
-        var forward = transform.forward;
-
-        WatchAllAlongTheBullet(position, forward);
+        WatchAllAlongTheBullet(transform.position, transform.forward);
     }
 
     private void WatchAllAlongTheBullet(Vector3 position, Vector3 forward)
     {
-        var ray1 = new Ray(position, forward);
-        var ray2 = new Ray(-position, -forward);
-        var ray3 = new Ray(position, -forward);
-        var ray4 = new Ray(-position, forward);
-
-
-        if (IfRaycastHitTarget(ray1)) ComputeShowBulletSplash();
-        if (IfRaycastHitTarget(ray2)) ComputeShowBulletSplash();
-        if (IfRaycastHitTarget(ray3)) ComputeShowBulletSplash();
-        if (IfRaycastHitTarget(ray4)) ComputeShowBulletSplash();
+        DrawIfRaycastHitPaintableTarget(position, -forward);
     }
 
-    private bool IfRaycastHitTarget(Ray ray)
+    private void DrawIfRaycastHitPaintableTarget(Vector3 position, Vector3 forward)
+    {
+        if (IfRaycastHitPaintableTarget(new Ray(position, forward))) ComputeShowBulletSplash();
+    }
+
+    private bool IfRaycastHitPaintableTarget(Ray ray)
     {
         return Physics.Raycast(ray, out _hit, bulletDepth, layers);
     }
 
     private void ComputeShowBulletSplash()
     {
-        Debug.Log("KABOOM AT : " + _hit.textureCoord);
         var textureCoord = _hit.textureCoord;
         var paintCanvas = _hit.transform.GetComponent<PaintCanvas>();
-        paintCanvas.Paint(textureCoord, 1, bulletTexture, Color.green);
+        paintCanvas.Paint(textureCoord, bulletWidth, bulletTexture, Color.green);
     }
 }
