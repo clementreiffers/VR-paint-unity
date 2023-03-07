@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: b5d73b447ebde874babef988b27c7a29
+  - enabled: 1
+    path: Assets/Scenes/PaintBallField.unity
+    guid: cc091e3c89cb85d47b678e2345814699
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: feca15a713954b3459f9f40f47b7493a, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 2f2fa4f4dcf01ba48bdb15a4444c79e1, type: 2}
