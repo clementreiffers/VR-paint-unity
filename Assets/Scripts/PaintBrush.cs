@@ -13,7 +13,10 @@ public class PaintBrush : MonoBehaviour
     private Vector3 _position, _forward;
     private Ray _ray;
 
-
+    private void Start()
+    {
+        paintColor = Color.green; 
+    } 
     // Update is called once per frame
     private void Update()
     {
