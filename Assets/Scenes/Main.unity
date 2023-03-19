@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2848,6 +2848,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebd1380e334915d4da7565f0b5bebce2, type: 3}
+--- !u!1 &1755697027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5338195516100912145, guid: ebd1380e334915d4da7565f0b5bebce2, type: 3}
+  m_PrefabInstance: {fileID: 1755697026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1755697028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755697027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93910107ede273acbf01a9e1b70f4d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1778073588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2896,6 +2913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TrackingType: 0
   m_UpdateType: 0
+  m_IgnoreTrackingState: 0
   m_PositionInput:
     m_UseReference: 0
     m_Action:
@@ -2950,6 +2968,18 @@ MonoBehaviour:
         m_Groups: 
         m_Action: Rotation
         m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_TrackingStateInput:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_PositionAction:
@@ -4319,3 +4349,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c48c10dcf63611a4bba0b03baeee2c01, type: 3}
+--- !u!1 &5420879319360227761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4517774296290477549, guid: c48c10dcf63611a4bba0b03baeee2c01, type: 3}
+  m_PrefabInstance: {fileID: 5420879319360227760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5420879319360227762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5420879319360227761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93910107ede273acbf01a9e1b70f4d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
